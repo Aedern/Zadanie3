@@ -1,0 +1,356 @@
+/* ========================================
+   MOBILE FIRST - Стили для смартфонов
+   ======================================== */
+
+/* Сброс стилей */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* ========== ШАПКА (100% ширины на мобильном) ========== */
+.header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 15px;
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* На мобильном вертикально */
+    align-items: center;
+    text-align: center;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-bottom: 5px;
+}
+
+.logo-text {
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #3498db;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.site-title h1 {
+    font-size: 20px;
+    color: white;
+    margin: 0;
+}
+
+/* ========== МЕНЮ (вертикальное на мобильном) ========== */
+.nav {
+    background-color: #34495e;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* Вертикально на мобильном */
+    gap: 10px;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    background-color: #3498db;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.nav a:hover {
+    background-color: #2980b9;
+}
+
+/* ========== КОНТЕЙНЕР ========== */
+.container {
+    width: 100%;
+    padding: 10px;
+    background-color: white;
+}
+
+/* Секции */
+.section {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+.section h2 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #3498db;
+    font-size: 20px;
+}
+
+/* ========== ПОРЯДОК ЭЛЕМЕНТОВ (Flexbox Order) ========== */
+/* 
+   В HTML порядок: links → table → form
+   На мобильном хотим: table → links → form
+   Используем order
+*/
+
+.table-section {
+    order: 1; /* Таблица первая на мобильном */
+}
+
+.links-section {
+    order: 2; /* Ссылки вторые */
+}
+
+.form-section {
+    order: 3; /* Форма третья */
+}
+
+/* ========== СПИСОК ССЫЛОК ========== */
+ul, ol {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ========== ТАБЛИЦА ========== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+    background-color: white;
+    font-size: 14px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #2c3e50;
+    color: white;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(odd) {
+    background-color: white;
+}
+
+td[colspan] {
+    font-weight: bold;
+    background-color: #e8f4f8;
+}
+
+/* ========== ФОРМА ========== */
+form {
+    background-color: white;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+label {
+    font-weight: bold;
+    color: #2c3e50;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="date"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 8px;
+    margin-bottom: 10px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button[type="submit"] {
+    width: 100%; /* На мобильном кнопка на всю ширину */
+    background-color: #27ae60;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #219a52;
+}
+
+/* ========== ПОДВАЛ (100% ширины) ========== */
+.footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.footer p {
+    font-size: 14px;
+    margin: 0;
+}
+
+/* ========================================
+   MEDIA QUERY - Планшеты и Десктопы
+   (ширина экрана от 768px)
+   ======================================== */
+
+@media screen and (min-width: 768px) {
+    
+    /* ШАПКА: логотип и название в ряд */
+    .header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 30px;
+    }
+    
+    .logo {
+        flex-direction: row;
+        margin-bottom: 0;
+    }
+    
+    .logo img {
+        margin-right: 10px;
+        margin-bottom: 0;
+    }
+    
+    .site-title h1 {
+        font-size: 24px;
+    }
+    
+    /* МЕНЮ: горизонтальное */
+    .nav {
+        flex-direction: row;
+        justify-content: center;
+        gap: 20px;
+        padding: 15px 30px;
+    }
+    
+    .nav a {
+        padding: 10px 20px;
+    }
+    
+    /* КОНТЕЙНЕР: фиксированная ширина, центрирование */
+    .container {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    
+    /* Секции */
+    .section {
+        padding: 20px;
+    }
+    
+    .section h2 {
+        font-size: 24px;
+    }
+    
+    /* ========== СБРОС ПОРЯДКА (как в HTML) ========== */
+    /* На десктопе порядок как в HTML */
+    .table-section {
+        order: 2; /* Таблица вторая */
+    }
+    
+    .links-section {
+        order: 1; /* Ссылки первые */
+    }
+    
+    .form-section {
+        order: 3; /* Форма третья */
+    }
+    
+    /* ТАБЛИЦА: побольше */
+    table {
+        font-size: 16px;
+    }
+    
+    th, td {
+        padding: 12px;
+    }
+    
+    /* ФОРМА: кнопка не на всю ширину */
+    button[type="submit"] {
+        width: auto;
+        padding: 12px 30px;
+    }
+    
+    /* ПОДВАЛ */
+    .footer {
+        padding: 20px;
+    }
+}
+
+/* ========================================
+   Дополнительные улучшения для больших экранов
+   (от 1024px)
+   ======================================== */
+
+@media screen and (min-width: 1024px) {
+    
+    .header {
+        padding: 20px 50px;
+    }
+    
+    .nav {
+        padding: 15px 50px;
+    }
+    
+    .container {
+        padding: 30px;
+    }
+}
