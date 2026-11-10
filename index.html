@@ -3,66 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Задание 3 - Адаптивный сайт</title>
+    <title>Задание 3 - Aedem</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="page-wrapper">
 
     <!-- ШАПКА -->
-    <header class="header">
-        <div class="logo">
-            <img src="logo.png" alt="Логотип" onerror="this.style.display='none'">
-            <span class="logo-text">ЛОГО</span>
-        </div>
-        <div class="site-title">
-            <h1>Мой сайт КубГУ</h1>
+    <header>
+        <div class="header-content">
+            
+            <!-- ЛЕВАЯ ЧАСТЬ: логотип + название -->
+            <div class="header-left">
+                <div class="logo">
+                    <img src="logo.png" alt="Логотип" class="logo-img">
+                </div>
+                <div class="site-title">
+                    <h1>Мой сайт КубГУ</h1>
+                </div>
+            </div>
+            
+            <!-- ПРАВАЯ ЧАСТЬ: меню -->
+            <nav class="nav">
+                <a href="#links">Ссылки</a>
+                <a href="#table-section">Таблица</a>
+                <a href="#form-section">Форма</a>
+            </nav>
+            
         </div>
     </header>
 
-    <!-- МЕНЮ НАВИГАЦИИ -->
-    <nav class="nav">
-        <a href="#links">Ссылки</a>
-        <a href="#table-section">Таблица</a>
-        <a href="#form-section">Форма</a>
-    </nav>
+    <!-- ЯКОРЬ ДЛЯ ВОЗВРАТА НАВЕРХ -->
+    <a id="top"></a>
 
     <!-- ОСНОВНОЙ КОНТЕНТ -->
-    <div class="container">
+    <main class="container">
 
-        <!-- СПИСОК ССЫЛОК (в HTML идёт первым) -->
+        <!-- СПИСОК ССЫЛОК (в HTML идёт первым, но на мобильном будет вторым через order) -->
         <section id="links" class="section links-section">
             <h2>Список гиперссылок</h2>
             <ul>
                 <li><a href="http://kubsu.ru/">Абсолютная ссылка (http)</a></li>
                 <li><a href="https://kubsu.ru/">Абсолютная ссылка (https)</a></li>
-                <li><a href="https://kubsu.ru/"><img src="https://via.placeholder.com/100" alt="Картинка"></a></li>
+                <li>
+                    <a href="https://kubsu.ru/">
+                        <img src="kubgu.jpg" alt="Картинка-ссылка" width="100">
+                    </a>
+                </li>
+                <li><a href="/ru/struct/university">Сокращённая на внутреннюю</a></li>
                 <li><a href="/">Сокращённая на главную</a></li>
-                <li><a href="#top">На фрагмент страницы</a></li>
+                <li><a href="#top">На фрагмент страницы (наверх)</a></li>
+                <li><a href="page.html?a=1&b=2&c=3">С тремя параметрами</a></li>
                 <li><a href="page.html?id=5">С параметром id</a></li>
-                <li><a href="page.html">Относительная ссылка</a></li>
-                <li><a href="about/page.html">В каталоге about</a></li>
+                <li><a href="page.html">Относительная в текущем каталоге</a></li>
+                <li><a href="about/page.html">Относительная в about</a></li>
                 <li><a href="../page.html">На уровень выше</a></li>
+                <li><a href="../../page.html">Двумя уровнями выше</a></li>
                 <li><p>Контекстная <a href="https://kubsu.ru/">ссылка</a> в тексте</p></li>
+                <li><a href="https://kubsu.ru/ru/struct/university#content">На фрагмент стороннего сайта</a></li>
+                <li>
+                    <p>Картинка с кликабельными областями:</p>
+                    <img src="map.png" alt="Карта" usemap="#map1" width="400" height="200">
+                    <map name="map1">
+                        <area shape="rect" coords="0,0,200,200" href="https://kubsu.ru/" alt="Прямоугольник">
+                        <area shape="circle" coords="300,100,80" href="https://kubsu.ru/ru/struct/university" alt="Круг">
+                    </map>
+                </li>
                 <li><a href="">Пустая ссылка</a></li>
-                <li><a>Без href</a></li>
-                <li><a href="https://kubsu.ru/" rel="nofollow">Nofollow</a></li>
+                <li><a>Ссылка без href</a></li>
+                <li><a href="https://kubsu.ru/" rel="nofollow">Ссылка nofollow</a></li>
+                <li><a href="https://kubsu.ru/" rel="nofollow noopener">Ссылка noindex</a></li>
                 <li>
                     <ol>
                         <li><a href="https://kubsu.ru/" title="Главная">Ссылка 1</a></li>
                         <li><a href="https://kubsu.ru/ru/struct/university" title="О университете">Ссылка 2</a></li>
+                        <li><a href="https://kubsu.ru/ru/struct/faculties" title="Факультеты">Ссылка 3</a></li>
                     </ol>
                 </li>
+                <li><a href="ftp://ftp.example.com/file.txt">FTP ссылка</a></li>
             </ul>
         </section>
 
-        <!-- ТАБЛИЦА (в HTML идёт второй, но на мобильном должна быть выше) -->
+        <!-- ТАБЛИЦА (в HTML идёт второй, но на мобильном будет первой через order) -->
         <section id="table-section" class="section table-section">
             <h2>Таблица</h2>
             <table>
                 <thead>
                     <tr>
                         <th>№</th>
-                        <th>Название</th>
+                        <th>Название предмета</th>
                         <th>Описание</th>
                         <th>Статус</th>
                     </tr>
@@ -70,37 +98,37 @@
                 <tbody>
                     <tr>
                         <td>1</td>
-                        <td colspan="2">Объединённая ячейка</td>
+                        <td colspan="2">Объединённая ячейка (HTML + CSS)</td>
                         <td>Изучено</td>
                     </tr>
                     <tr>
                         <td>2</td>
-                        <td>HTML5</td>
-                        <td>Разметка</td>
-                        <td>Готово</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>CSS3</td>
-                        <td>Стили</td>
+                        <td>Веб-разработка</td>
+                        <td>Создание сайтов</td>
                         <td>Активно</td>
                     </tr>
                     <tr>
+                        <td>3</td>
+                        <td>HTML5</td>
+                        <td>Разметка страниц</td>
+                        <td>Готово</td>
+                    </tr>
+                    <tr>
                         <td>4</td>
-                        <td>Flexbox</td>
-                        <td>Расположение</td>
-                        <td>Изучается</td>
+                        <td>CSS3</td>
+                        <td>Стилизация</td>
+                        <td>В процессе</td>
                     </tr>
                     <tr>
                         <td>5</td>
-                        <td>Media Query</td>
-                        <td>Адаптивность</td>
-                        <td>Сейчас</td>
+                        <td>JavaScript</td>
+                        <td>Программирование</td>
+                        <td>Планируется</td>
                     </tr>
                     <tr>
                         <td>6</td>
                         <td>GitHub</td>
-                        <td>Хостинг</td>
+                        <td>Хостинг проектов</td>
                         <td>Используется</td>
                     </tr>
                 </tbody>
@@ -111,40 +139,54 @@
         <section id="form-section" class="section form-section">
             <h2>Форма</h2>
             <form action="#" method="post">
-                <label>ФИО:</label><br>
-                <input type="text" name="fio"><br><br>
+                
+                <label for="fio">ФИО:</label><br>
+                <input type="text" id="fio" name="fio" placeholder="Иванов Иван Иванович"><br><br>
 
-                <label>Телефон:</label><br>
-                <input type="tel" name="phone"><br><br>
+                <label for="phone">Телефон:</label><br>
+                <input type="tel" id="phone" name="phone" placeholder="+7 (999) 123-45-67"><br><br>
 
-                <label>E-mail:</label><br>
-                <input type="email" name="email"><br><br>
+                <label for="email">E-mail:</label><br>
+                <input type="email" id="email" name="email" placeholder="example@mail.ru"><br><br>
 
-                <label>Дата рождения:</label><br>
-                <input type="date" name="birthdate"><br><br>
+                <label for="birthdate">Дата рождения:</label><br>
+                <input type="date" id="birthdate" name="birthdate"><br><br>
 
                 <label>Пол:</label><br>
-                <input type="radio" name="gender" value="male"> Мужской<br>
-                <input type="radio" name="gender" value="female"> Женский<br><br>
+                <input type="radio" id="male" name="gender" value="male">
+                <label for="male">Мужской</label><br>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Женский</label><br><br>
 
-                <label>Язык программирования:</label><br>
-                <input type="checkbox" name="lang" value="Python"> Python<br>
-                <input type="checkbox" name="lang" value="JavaScript"> JavaScript<br>
-                <input type="checkbox" name="lang" value="PHP"> PHP<br><br>
+                <label for="lang-select">Любимый язык программирования (зажми Ctrl для выбора нескольких):</label><br>
+                <select name="lang[]" id="lang-select" multiple size="6" class="lang-select">
+                    <option value="Pascal">Pascal</option>
+                    <option value="C">C</option>
+                    <option value="C++">C++</option>
+                    <option value="JavaScript">JavaScript</option>
+                    <option value="PHP">PHP</option>
+                    <option value="Python">Python</option>
+                    <option value="Java">Java</option>
+                    <option value="Haskell">Haskell</option>
+                    <option value="Clojure">Clojure</option>
+                    <option value="Prolog">Prolog</option>
+                    <option value="Scala">Scala</option>
+                </select><br><br>
 
-                <label>Биография:</label><br>
-                <textarea name="bio" rows="5" cols="40"></textarea><br><br>
+                <label for="bio">Биография:</label><br>
+                <textarea id="bio" name="bio" rows="5" cols="40" placeholder="Расскажите о себе..."></textarea><br><br>
 
-                <input type="checkbox" name="contract"> Ознакомлен(а)<br><br>
+                <input type="checkbox" id="contract" name="contract">
+                <label for="contract">С контрактом ознакомлен(а)</label><br><br>
 
                 <button type="submit">Сохранить</button>
             </form>
         </section>
 
-    </div>
+    </main>
 
     <!-- ПОДВАЛ -->
-    <footer class="footer">
+    <footer>
         <p>(c) Aedem 2024. Задание 3</p>
     </footer>
 
