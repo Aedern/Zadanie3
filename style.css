@@ -1,54 +1,86 @@
-/* ========================================
-   MOBILE FIRST - Стили для смартфонов
-   ======================================== */
-
-/* Сброс стилей */
+/* ========== ФУНДАМЕНТ (Mobile First - базовые стили для мобильных) ========== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    font-family: Arial, sans-serif;
+html, body {
+    height: 100%;
+}
+
+body.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    font-family: Arial, "Helvetica Neue", sans-serif;
     font-size: 16px;
     line-height: 1.6;
     background-color: #f4f4f4;
     color: #333;
 }
 
-/* ========== ШАПКА (100% ширины на мобильном) ========== */
-.header {
+main {
+    flex: 1;
+}
+
+/* ========== ССЫЛКИ И ЗАГОЛОВКИ ========== */
+a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #2980b9;
+}
+
+section h2 {
+    color: #2c3e50;
+    margin: 30px 0 20px 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #3498db;
+    font-size: 20px;
+}
+
+ul, ol {
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+/* ========== ШАПКА (на мобильном - вертикально, 100% ширины) ========== */
+header {
     background-color: #2c3e50;
     color: white;
-    padding: 15px;
+    padding: 15px 0;
     width: 100%;
-    display: flex;
-    flex-direction: column; /* На мобильном вертикально */
-    align-items: center;
-    text-align: center;
 }
 
-.logo {
+.header-content {
+    width: 100%;
+    padding: 0 15px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* На мобильном - вертикально */
     align-items: center;
-    margin-bottom: 10px;
+    gap: 15px;
 }
 
-.logo img {
+.header-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+}
+
+.logo-img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    margin-bottom: 5px;
-}
-
-.logo-text {
-    font-size: 20px;
-    font-weight: bold;
-    background-color: #3498db;
-    padding: 5px 10px;
-    border-radius: 5px;
 }
 
 .site-title h1 {
@@ -57,37 +89,37 @@ body {
     margin: 0;
 }
 
-/* ========== МЕНЮ (вертикальное на мобильном) ========== */
+/* ========== МЕНЮ (на мобильном - вертикально) ========== */
 .nav {
-    background-color: #34495e;
-    padding: 10px;
-    width: 100%;
     display: flex;
-    flex-direction: column; /* Вертикально на мобильном */
+    flex-direction: column;
     gap: 10px;
+    width: 100%;
 }
 
 .nav a {
     color: white;
     text-decoration: none;
-    padding: 10px;
+    padding: 10px 15px;
     background-color: #3498db;
     border-radius: 5px;
     text-align: center;
+    transition: background-color 0.3s;
 }
 
 .nav a:hover {
     background-color: #2980b9;
+    text-decoration: none;
 }
 
-/* ========== КОНТЕЙНЕР ========== */
+/* ========== КОНТЕЙНЕР (на мобильном - 100% ширины) ========== */
 .container {
     width: 100%;
-    padding: 10px;
+    padding: 15px;
     background-color: white;
 }
 
-/* Секции */
+/* ========== СЕКЦИИ ========== */
 .section {
     width: 100%;
     margin-bottom: 20px;
@@ -96,21 +128,7 @@ body {
     border-radius: 5px;
 }
 
-.section h2 {
-    color: #2c3e50;
-    margin-bottom: 15px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #3498db;
-    font-size: 20px;
-}
-
-/* ========== ПОРЯДОК ЭЛЕМЕНТОВ (Flexbox Order) ========== */
-/* 
-   В HTML порядок: links → table → form
-   На мобильном хотим: table → links → form
-   Используем order
-*/
-
+/* ========== FLEXBOX ORDER (на мобильном: таблица выше списка) ========== */
 .table-section {
     order: 1; /* Таблица первая на мобильном */
 }
@@ -123,31 +141,11 @@ body {
     order: 3; /* Форма третья */
 }
 
-/* ========== СПИСОК ССЫЛОК ========== */
-ul, ol {
-    margin-left: 20px;
-    margin-bottom: 15px;
-}
-
-li {
-    margin-bottom: 8px;
-}
-
-a {
-    color: #3498db;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
 /* ========== ТАБЛИЦА ========== */
 table {
     width: 100%;
     border-collapse: collapse;
-    margin: 10px 0;
-    background-color: white;
+    margin: 20px 0;
     font-size: 14px;
 }
 
@@ -161,14 +159,20 @@ th {
     background-color: #2c3e50;
     color: white;
     font-weight: bold;
+    text-transform: uppercase;
+    font-size: 12px;
 }
 
 tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: #f9f9f9;
 }
 
 tr:nth-child(odd) {
-    background-color: white;
+    background-color: #ffffff;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
 }
 
 td[colspan] {
@@ -178,9 +182,10 @@ td[colspan] {
 
 /* ========== ФОРМА ========== */
 form {
-    background-color: white;
+    background-color: #f9f9f9;
     padding: 15px;
     border-radius: 5px;
+    border: 1px solid #ddd;
 }
 
 label {
@@ -194,13 +199,14 @@ input[type="text"],
 input[type="tel"],
 input[type="email"],
 input[type="date"],
-textarea {
+textarea,
+.lang-select {
     width: 100%;
     padding: 8px;
-    margin-bottom: 10px;
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 14px;
+    margin-bottom: 10px;
 }
 
 input[type="radio"],
@@ -213,8 +219,16 @@ textarea {
     resize: vertical;
 }
 
+.lang-select {
+    background-color: white;
+}
+
+.lang-select option:checked {
+    background-color: #3498db;
+    color: white;
+}
+
 button[type="submit"] {
-    width: 100%; /* На мобильном кнопка на всю ширину */
     background-color: #27ae60;
     color: white;
     padding: 12px;
@@ -222,69 +236,63 @@ button[type="submit"] {
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
+    width: 100%; /* На мобильном кнопка на всю ширину */
+    transition: background-color 0.3s;
 }
 
 button[type="submit"]:hover {
     background-color: #219a52;
 }
 
-/* ========== ПОДВАЛ (100% ширины) ========== */
-.footer {
+/* ========== ПОДВАЛ (на мобильном - 100% ширины, текст слева) ========== */
+footer {
     background-color: #2c3e50;
     color: white;
-    text-align: center;
+    text-align: left;
     padding: 15px;
     width: 100%;
     margin-top: 20px;
 }
 
-.footer p {
-    font-size: 14px;
+footer p {
     margin: 0;
+    font-size: 14px;
 }
 
-/* ========================================
-   MEDIA QUERY - Планшеты и Десктопы
-   (ширина экрана от 768px)
-   ======================================== */
-
-@media screen and (min-width: 768px) {
+/* ========== DESKTOP (от 768px и больше) ========== */
+@media (min-width: 768px) {
     
-    /* ШАПКА: логотип и название в ряд */
-    .header {
-        flex-direction: row;
-        justify-content: space-between;
+    /* Шапка: логотип+название слева, меню справа */
+    .header-content {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 20px;
+        flex-direction: row; /* В ряд */
         align-items: center;
-        padding: 15px 30px;
     }
     
-    .logo {
-        flex-direction: row;
-        margin-bottom: 0;
-    }
-    
-    .logo img {
-        margin-right: 10px;
-        margin-bottom: 0;
+    .header-left {
+        justify-content: flex-start;
+        width: auto;
     }
     
     .site-title h1 {
         font-size: 24px;
     }
     
-    /* МЕНЮ: горизонтальное */
+    /* Меню: горизонтально, прижато вправо */
     .nav {
         flex-direction: row;
-        justify-content: center;
-        gap: 20px;
-        padding: 15px 30px;
+        width: auto;
+        gap: 15px;
+        margin-left: auto; /* ← ОТОДВИГАЕТ МЕНЮ ВПРАВО */
     }
     
     .nav a {
-        padding: 10px 20px;
+        padding: 8px 15px;
     }
     
-    /* КОНТЕЙНЕР: фиксированная ширина, центрирование */
+    /* Контейнер: 960px по центру */
     .container {
         max-width: 960px;
         margin: 0 auto;
@@ -296,25 +304,24 @@ button[type="submit"]:hover {
         padding: 20px;
     }
     
-    .section h2 {
+    section h2 {
         font-size: 24px;
     }
     
-    /* ========== СБРОС ПОРЯДКА (как в HTML) ========== */
-    /* На десктопе порядок как в HTML */
-    .table-section {
-        order: 2; /* Таблица вторая */
-    }
-    
+    /* СБРОС ПОРЯДКА (на десктопе - как в HTML) */
     .links-section {
         order: 1; /* Ссылки первые */
+    }
+    
+    .table-section {
+        order: 2; /* Таблица вторая */
     }
     
     .form-section {
         order: 3; /* Форма третья */
     }
     
-    /* ТАБЛИЦА: побольше */
+    /* Таблица: побольше */
     table {
         font-size: 16px;
     }
@@ -323,34 +330,45 @@ button[type="submit"]:hover {
         padding: 12px;
     }
     
-    /* ФОРМА: кнопка не на всю ширину */
+    th {
+        font-size: 14px;
+    }
+    
+    /* Форма: поля не на всю ширину */
+    input[type="text"],
+    input[type="tel"],
+    input[type="email"],
+    input[type="date"],
+    textarea,
+    .lang-select {
+        max-width: 400px;
+    }
+    
+    /* Кнопка: обычная ширина */
     button[type="submit"] {
         width: auto;
         padding: 12px 30px;
     }
     
-    /* ПОДВАЛ */
-    .footer {
+    /* Подвал */
+    footer {
         padding: 20px;
+        margin-top: 40px;
     }
 }
 
-/* ========================================
-   Дополнительные улучшения для больших экранов
-   (от 1024px)
-   ======================================== */
-
-@media screen and (min-width: 1024px) {
+/* ========== БОЛЬШИЕ ЭКРАНЫ (от 1024px) ========== */
+@media (min-width: 1024px) {
     
-    .header {
-        padding: 20px 50px;
-    }
-    
-    .nav {
-        padding: 15px 50px;
+    .header-content {
+        padding: 0 30px;
     }
     
     .container {
         padding: 30px;
+    }
+    
+    .section {
+        padding: 25px;
     }
 }
