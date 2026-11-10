@@ -1,4 +1,4 @@
-/* ========== ФУНДАМЕНТ (Mobile First - базовые стили для мобильных) ========== */
+/* ========== ФУНДАМЕНТ ========== */
 * {
     margin: 0;
     padding: 0;
@@ -52,44 +52,61 @@ li {
     margin-bottom: 8px;
 }
 
-/* ========== ШАПКА (на мобильном - вертикально, 100% ширины) ========== */
+/* ========== ШАПКА (мобильная версия) ========== */
 header {
-    background-color: #2c3e50;
-    color: white;
+    background-color: #dbe4f0;
+    border-bottom: 2px solid #a0b4cc;
     padding: 15px 0;
     width: 100%;
 }
 
-.header-content {
+.header-container {
     width: 100%;
-    padding: 0 15px;
+    padding: 0 20px;
+    box-sizing: border-box;
     display: flex;
-    flex-direction: column; /* На мобильном - вертикально */
+    flex-direction: column;
     align-items: center;
     gap: 15px;
 }
 
-.header-left {
+.brand {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 15px;
     width: 100%;
 }
 
-.logo-img {
-    width: 50px;
-    height: 50px;
+.logo {
+    width: 80px;
+    height: 80px;
+    border: 2px solid #333;
     border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    overflow: hidden;
+    margin: 0 auto;
 }
 
-.site-title h1 {
-    font-size: 20px;
-    color: white;
+.logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.site-info {
+    text-align: center;
+    width: 100%;
+}
+
+.site-name {
     margin: 0;
+    font-size: 20px;
+    color: #2c3e50;
 }
 
-/* ========== МЕНЮ (на мобильном - вертикально) ========== */
 .nav {
     display: flex;
     flex-direction: column;
@@ -112,7 +129,7 @@ header {
     text-decoration: none;
 }
 
-/* ========== КОНТЕЙНЕР (на мобильном - 100% ширины) ========== */
+/* ========== КОНТЕЙНЕР ========== */
 .container {
     width: 100%;
     padding: 15px;
@@ -128,17 +145,17 @@ header {
     border-radius: 5px;
 }
 
-/* ========== FLEXBOX ORDER (на мобильном: таблица выше списка) ========== */
+/* ========== FLEXBOX ORDER ========== */
 .table-section {
-    order: 1; /* Таблица первая на мобильном */
+    order: 1;
 }
 
 .links-section {
-    order: 2; /* Ссылки вторые */
+    order: 2;
 }
 
 .form-section {
-    order: 3; /* Форма третья */
+    order: 3;
 }
 
 /* ========== ТАБЛИЦА ========== */
@@ -236,7 +253,7 @@ button[type="submit"] {
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
-    width: 100%; /* На мобильном кнопка на всю ширину */
+    width: 100%;
     transition: background-color 0.3s;
 }
 
@@ -244,7 +261,7 @@ button[type="submit"]:hover {
     background-color: #219a52;
 }
 
-/* ========== ПОДВАЛ (на мобильном - 100% ширины, текст слева) ========== */
+/* ========== ПОДВАЛ ========== */
 footer {
     background-color: #2c3e50;
     color: white;
@@ -259,47 +276,54 @@ footer p {
     font-size: 14px;
 }
 
-/* ========== DESKTOP (от 768px и больше) ========== */
+/* ========== DESKTOP (от 768px) ========== */
 @media (min-width: 768px) {
     
-    /* Шапка: логотип+название слева, меню справа */
-    .header-content {
+    .header-container {
         max-width: 960px;
         margin: 0 auto;
         padding: 0 20px;
-        flex-direction: row; /* В ряд */
+        flex-direction: row;
         align-items: center;
+        justify-content: space-between;
     }
     
-    .header-left {
-        justify-content: flex-start;
+    .brand {
         width: auto;
+        justify-content: flex-start;
     }
     
-    .site-title h1 {
+    .logo {
+        width: 60px;
+        height: 60px;
+        margin: 0;
+    }
+    
+    .site-info {
+        flex: 1;
+        text-align: center;
+    }
+    
+    .site-name {
         font-size: 24px;
     }
     
-    /* Меню: горизонтально, прижато вправо */
     .nav {
         flex-direction: row;
         width: auto;
         gap: 15px;
-        margin-left: auto; /* ← ОТОДВИГАЕТ МЕНЮ ВПРАВО */
     }
     
     .nav a {
         padding: 8px 15px;
     }
     
-    /* Контейнер: 960px по центру */
     .container {
         max-width: 960px;
         margin: 0 auto;
         padding: 20px;
     }
     
-    /* Секции */
     .section {
         padding: 20px;
     }
@@ -308,20 +332,18 @@ footer p {
         font-size: 24px;
     }
     
-    /* СБРОС ПОРЯДКА (на десктопе - как в HTML) */
     .links-section {
-        order: 1; /* Ссылки первые */
+        order: 1;
     }
     
     .table-section {
-        order: 2; /* Таблица вторая */
+        order: 2;
     }
     
     .form-section {
-        order: 3; /* Форма третья */
+        order: 3;
     }
     
-    /* Таблица: побольше */
     table {
         font-size: 16px;
     }
@@ -334,7 +356,6 @@ footer p {
         font-size: 14px;
     }
     
-    /* Форма: поля не на всю ширину */
     input[type="text"],
     input[type="tel"],
     input[type="email"],
@@ -344,13 +365,11 @@ footer p {
         max-width: 400px;
     }
     
-    /* Кнопка: обычная ширина */
     button[type="submit"] {
         width: auto;
         padding: 12px 30px;
     }
     
-    /* Подвал */
     footer {
         padding: 20px;
         margin-top: 40px;
@@ -359,8 +378,7 @@ footer p {
 
 /* ========== БОЛЬШИЕ ЭКРАНЫ (от 1024px) ========== */
 @media (min-width: 1024px) {
-    
-    .header-content {
+    .header-container {
         padding: 0 30px;
     }
     
