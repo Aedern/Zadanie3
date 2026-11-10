@@ -97,6 +97,7 @@ header {
 
 /* Название — по центру */
 .site-info {
+    flex: 1;
     text-align: center;
     width: 100%;
 }
