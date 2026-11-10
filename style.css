@@ -133,6 +133,8 @@ header {
 
 /* ========== КОНТЕЙНЕР ========== */
 .container {
+flex-direction: column;
+display: flex;
     width: 100%;
     padding: 15px;
     background-color: white;
@@ -279,7 +281,7 @@ footer p {
 }
 
 /* ========== DESKTOP (от 768px) ========== */
-@media (min-width: 768px) {
+@media (min-width: 1000px) {
     
     /* ШАПКА: лого слева, название по центру, меню справа */
     .header-container {
@@ -339,8 +341,8 @@ footer p {
     }
     
     /* ORDER НЕ МЕНЯЕМ — таблица всегда первая */
-    .table-section { order: 1; }
-    .links-section { order: 2; }
+    .table-section { order: 2; }
+    .links-section { order: 1; }
     .form-section  { order: 3; }
     
     /* Таблица */
