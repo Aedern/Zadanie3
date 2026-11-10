@@ -10,19 +10,21 @@
 
     <!-- ШАПКА -->
     <header>
-        <div class="header-content">
+        <div class="header-container">
             
-            <!-- ЛЕВАЯ ЧАСТЬ: логотип + название -->
-            <div class="header-left">
+            <!-- СЛЕВА: логотип -->
+            <div class="brand">
                 <div class="logo">
-                    <img src="logo.png" alt="Логотип" class="logo-img">
-                </div>
-                <div class="site-title">
-                    <h1>Мой сайт КубГУ</h1>
+                    <img src="logo.png" alt="Логотип">
                 </div>
             </div>
             
-            <!-- ПРАВАЯ ЧАСТЬ: меню -->
+            <!-- ПО ЦЕНТРУ: название сайта -->
+            <div class="site-info">
+                <h1 class="site-name">Мой сайт КубГУ</h1>
+            </div>
+            
+            <!-- СПРАВА: меню -->
             <nav class="nav">
                 <a href="#links">Ссылки</a>
                 <a href="#table-section">Таблица</a>
@@ -32,13 +34,13 @@
         </div>
     </header>
 
-    <!-- ЯКОРЬ ДЛЯ ВОЗВРАТА НАВЕРХ -->
+    <!-- ЯКОРЬ -->
     <a id="top"></a>
 
     <!-- ОСНОВНОЙ КОНТЕНТ -->
     <main class="container">
 
-        <!-- СПИСОК ССЫЛОК (в HTML идёт первым, но на мобильном будет вторым через order) -->
+        <!-- СПИСОК ССЫЛОК -->
         <section id="links" class="section links-section">
             <h2>Список гиперссылок</h2>
             <ul>
@@ -83,7 +85,7 @@
             </ul>
         </section>
 
-        <!-- ТАБЛИЦА (в HTML идёт второй, но на мобильном будет первой через order) -->
+        <!-- ТАБЛИЦА -->
         <section id="table-section" class="section table-section">
             <h2>Таблица</h2>
             <table>
