@@ -1,4 +1,4 @@
-/* ========== ФУНДАМЕНТ ========== */
+/* ========== ФУНДАМЕНТ (Mobile First) ========== */
 * {
     margin: 0;
     padding: 0;
@@ -63,13 +63,13 @@ header {
 .header-container {
     width: 100%;
     padding: 0 20px;
-    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 15px;
 }
 
+/* Логотип — на мобильном по центру */
 .brand {
     display: flex;
     align-items: center;
@@ -87,7 +87,6 @@ header {
     justify-content: center;
     background-color: #fff;
     overflow: hidden;
-    margin: 0 auto;
 }
 
 .logo img {
@@ -96,6 +95,7 @@ header {
     object-fit: cover;
 }
 
+/* Название — по центру */
 .site-info {
     text-align: center;
     width: 100%;
@@ -107,6 +107,7 @@ header {
     color: #2c3e50;
 }
 
+/* Меню — вертикально на мобильном */
 .nav {
     display: flex;
     flex-direction: column;
@@ -145,7 +146,7 @@ header {
     border-radius: 5px;
 }
 
-/* ========== FLEXBOX ORDER ========== */
+/* ========== FLEXBOX ORDER: ТАБЛИЦА → ССЫЛКИ → ФОРМА ========== */
 .table-section {
     order: 1;
 }
@@ -279,6 +280,7 @@ footer p {
 /* ========== DESKTOP (от 768px) ========== */
 @media (min-width: 768px) {
     
+    /* ШАПКА: лого слева, название по центру, меню справа */
     .header-container {
         max-width: 960px;
         margin: 0 auto;
@@ -288,6 +290,7 @@ footer p {
         justify-content: space-between;
     }
     
+    /* Логотип — С ЛЕВОГО КРАЯ */
     .brand {
         width: auto;
         justify-content: flex-start;
@@ -296,9 +299,9 @@ footer p {
     .logo {
         width: 60px;
         height: 60px;
-        margin: 0;
     }
     
+    /* Название — ПО СЕРЕДИНЕ (занимает всё свободное место) */
     .site-info {
         flex: 1;
         text-align: center;
@@ -308,6 +311,7 @@ footer p {
         font-size: 24px;
     }
     
+    /* Меню — СПРАВА */
     .nav {
         flex-direction: row;
         width: auto;
@@ -318,6 +322,7 @@ footer p {
         padding: 8px 15px;
     }
     
+    /* Контейнер */
     .container {
         max-width: 960px;
         margin: 0 auto;
@@ -332,18 +337,12 @@ footer p {
         font-size: 24px;
     }
     
-    .links-section {
-        order: 1;
-    }
+    /* ORDER НЕ МЕНЯЕМ — таблица всегда первая */
+    .table-section { order: 1; }
+    .links-section { order: 2; }
+    .form-section  { order: 3; }
     
-    .table-section {
-        order: 2;
-    }
-    
-    .form-section {
-        order: 3;
-    }
-    
+    /* Таблица */
     table {
         font-size: 16px;
     }
@@ -356,6 +355,7 @@ footer p {
         font-size: 14px;
     }
     
+    /* Форма */
     input[type="text"],
     input[type="tel"],
     input[type="email"],
@@ -370,6 +370,7 @@ footer p {
         padding: 12px 30px;
     }
     
+    /* Подвал */
     footer {
         padding: 20px;
         margin-top: 40px;
